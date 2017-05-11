@@ -1,0 +1,59 @@
+<div class="container">
+  <h2>{{vm.titulo}}</h2>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label for="numero" class="col-sm-2 control-label">Número</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control text-right" ng-model="vm.registro.numero" readonly id="numero">
+      </div>
+      <label for="emissao" class="col-sm-2 control-label">Emissão</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control text-right" ng-model="vm.registro.emissao | date: 'dd/MM/yyyy HH:mm'" readonly  id="emissao">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="cliente" class="col-sm-2 control-label">Cliente</label>
+      <div class="col-sm-8" ng-controller="ClienteListController as cliVm">
+        <select name="cliente" ng-model="vm.registro.cliente" class="form-control" id="cliente">
+          <option ng-repeat="item in cliVm.clientes" value="item._id">{{item.nome}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="text-right col-sm-10">
+      <button ng-click="vm.adicionarItem()" type="button" class="btn btn-success">
+        <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+        <span>Novo Item</span>
+      </button>
+    </div>
+    <div class="table-responsive col-sm-10">
+      <table class="table table-striped table-condensed">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Descrição</th>
+            <th>Quantidade</th>
+            <th>Preço</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in vm.pedido.itens">
+            <td>{{item.codigo}}</td>
+            <td>{{item.descricao}}</td>
+            <td>{{item.quantidade | number:2}}</td>
+            <td>{{item.preco | number:2}}</td>
+            <td>{{item.preco * item.quantidade | number:2}}</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="text-right col-sm-10">
+      <a href="#/pedidos" class="btn btn-danger">Cancelar</a>
+      <button ng-click="vm.salvar()" type="button" class="btn btn-success btn-lg">Salvar</button>
+    </div>
+  </form>
+</div>
+<!-- /.container -->
