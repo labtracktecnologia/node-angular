@@ -27,26 +27,11 @@
     }
 
     function remover(cliente) {
-      bootbox.confirm({
-        message: 'Deseja realmente remover o cliente "' + cliente.nome + '"',
-        buttons: {
-          confirm: {
-            label: 'Sim',
-            className: 'btn-success'
-          },
-          cancel: {
-            label: 'Não',
-            className: 'btn-danger'
-          }
-        },
-        callback: function(result) {
-          if (result) {
-            ClienteService.remove(cliente._id)
-              .success(function () {
-                activate();
-              });
-          }
-        }
+      confirmBox('Deseja realmente remover o cliente "' + cliente.nome + '"', function () {
+        ClienteService.remove(cliente._id)
+          .success(function () {
+            activate();
+          });
       });
 
       // if (!confirm('Deseja realmente remover o cliente "' + cliente.nome + '"'))

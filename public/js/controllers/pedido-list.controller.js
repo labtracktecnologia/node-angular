@@ -1,5 +1,5 @@
-(function() {
-'use strict';
+(function () {
+  'use strict';
 
   angular
     .module('app')
@@ -23,30 +23,20 @@
       PedidoService.find(query)
         .success(function (data) {
           vm.pedidos = data;
+          vm.pedidos.forEach(function(item) {
+            item.getTotal = () => {
+              return item.itens ? item.itens.reduce((prev, cur)=> prev + (cur.preco * cur.quantidade), 0) : 0;
+            }
+          });
         });
     }
 
     function remover(pedido) {
-      bootbox.confirm({
-        message: 'Deseja realmente remover o pedido "' + pedido.numero + '"',
-        buttons: {
-          confirm: {
-            label: 'Sim',
-            className: 'btn-success'
-          },
-          cancel: {
-            label: 'Não',
-            className: 'btn-danger'
-          }
-        },
-        callback: function(result) {
-          if (result) {
-            PedidoService.remove(pedido._id)
-              .success(function () {
-                activate();
-              });
-          }
-        }
+      confirmBox('Deseja realmente remover o pedido "' + pedido.numero + '"', function () {
+        PedidoService.remove(pedido._id)
+          .success(function () {
+            activate();
+          });
       });
 
       // if (!confirm('Deseja realmente remover o pedido "' + pedido.numero + '"'))

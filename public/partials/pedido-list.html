@@ -22,7 +22,7 @@
           <th>Emissão</th>
           <th>Cliente</th>
           <th>Telefone</th>
-          <th>Total</th>
+          <th class="text-right">Total</th>
           <th></th>
         </tr>
       </thead>
@@ -32,8 +32,8 @@
           <td>{{item.emissao | date: 'dd/MM/yyyy HH:mm'}}</td>
           <td>{{item.cliente.nome}}</td>
           <td>{{item.cliente.telefone}}</td>
-          <td>{{item.total}}</td>
-          <td>
+          <td class="text-right">{{item.getTotal() | number:2}}</td>
+          <td class="text-right">
             <a class="btn btn-link" ng-href="{{'#/pedidos/' + item._id}}">
               <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             </a>
@@ -43,7 +43,6 @@
           </td>
         </tr>
       </tbody>
-      <tfoot></tfoot>
     </table>
   </div></div>
 <!-- /.container -->

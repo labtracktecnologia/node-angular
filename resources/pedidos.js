@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var pedidoModel = mongoose.model('pedidos');
+var parseParams = require('../utils/parse-params');
 
 module.exports = function(app) {
   app.get('/api/pedidos', function(req, resp) {
@@ -37,7 +38,6 @@ module.exports = function(app) {
   });
   app.get('/api/pedidos/:id', function(req, resp) {
     pedidoModel.findById(req.params.id)
-      .populate('cliente')
       .then(function(data) {
         resp.json(data);
       }, function(erro) {
