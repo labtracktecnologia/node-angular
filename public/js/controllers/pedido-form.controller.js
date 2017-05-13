@@ -11,7 +11,6 @@
     vm.pedido = {};
     vm.titulo = 'Novo Pedido';
 
-    vm.modalTitulo = 'Novo Item';
     vm.item = null;
     var itemSelecionado = -1;
 
@@ -51,11 +50,13 @@
 
     function adicionarItem() {
       vm.item = {}
+      vm.modalTitulo = 'Novo Item'
       itemSelecionado = (vm.pedido.itens && vm.pedido.itens.length) || 0;
     }
 
     function editarItem(item) {
       itemSelecionado = vm.pedido.itens.indexOf(item);
+      vm.modalTitulo = 'Editando Item'
       vm.item = angular.copy(item);
     }
 
