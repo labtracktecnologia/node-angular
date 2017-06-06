@@ -19,7 +19,7 @@
     ////////////////
 
     function activate() {
-      var query = vm.busca ? { nome: vm.busca } : {}
+      var query = vm.busca ? { $text: { $search: vm.busca } } : {}
       ClienteService.find(query)
         .success(function (data) {
           vm.clientes = data;

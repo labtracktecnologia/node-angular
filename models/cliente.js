@@ -8,4 +8,6 @@ var _model = new Schema({
   telefone: String
 });
 
+_model.index({ '$**': 'text' });
+
 mongoose.model('clientes', _model);
