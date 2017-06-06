@@ -8,14 +8,12 @@ Modelo de aplicação para o curso de Javascript com back-end em Node JS + Expre
 
 # Modo de executar
 
-## Instalando as dependências
-
 No diretório do projeto execute:
+
+## Para instalar as dependências
 
 ### `npm install`
 
-## Executando a aplicação
-
-No diretório do projeto execute:
+## Para Executar a aplicação
 
 ### `npm start`
