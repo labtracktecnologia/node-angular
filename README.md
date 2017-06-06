@@ -3,8 +3,8 @@ Modelo de aplicação para o curso de Javascript com back-end em Node JS + Expre
 
 # Dependências
 
-- NodeJS versão 4.0 ou superior [https://nodejs.org/](nodejs.org/)
-- MongoDB versão 3.0 ou superior [https://www.mongodb.com](mongodb.com)
+- NodeJS versão 4.0 ou superior [nodejs.org/](https://nodejs.org/)
+- MongoDB versão 3.0 ou superior [mongodb.com](https://www.mongodb.com)
 
 # Modo de executar
 
