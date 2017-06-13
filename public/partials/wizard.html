@@ -1,0 +1,25 @@
+<wizard on-finish="vm.gravar()"> 
+    <wz-step wz-title="Bem Vindo" wz-order="0">
+        <h1>Nome do wizard</h1>
+        <p>
+          Descrição do wizard
+        </p>
+        <input class="btn btn-success" type="submit" wz-next value="Iniciar" />
+    </wz-step>
+    <wz-step ng-repeat="item in vm.steps track by $index" wz-title="{{'Pergunta ' + ($index + 1)}}" wz-order="{{$index + 1}}">
+        <h1>{{item.tema}}</h1>
+        <p>
+          <ul>
+            <li ng-repeat="opcao in item.opcoes">{{opcao}}</li>
+          </ul>
+        </p>
+        <input class="btn btn-success" type="submit" wz-next value="Confirma" />
+    </wz-step>
+    <wz-step wz-title="Finalizar" wz-order="100">
+        <h1>Muito obrigado</h1>
+        <p>
+          Agradecemos por sua colaboração
+        </p>
+        <input class="btn btn-success" type="submit" wz-next value="Finalizar" />
+    </wz-step>
+</wizard>

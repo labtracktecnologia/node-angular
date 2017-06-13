@@ -3,7 +3,8 @@
 
   angular.module('app', [
     'ngRoute',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'mgo-angular-wizard'
   ]).config(AppConfig);
 
   AppConfig.$inject = ['$routeProvider'];
@@ -12,6 +13,11 @@
       .when('/', {
         templateUrl: 'partials/main.html',
         controller: 'MainController',
+        controllerAs: 'vm'
+      })
+      .when('/wizard', {
+        templateUrl: 'partials/wizard.html',
+        controller: 'WizardController',
         controllerAs: 'vm'
       })
       .when('/clientes', {
