@@ -19,7 +19,7 @@
     ////////////////
 
     function activate() {
-      var query = vm.busca ? { nome: vm.busca } : {}
+      var query = vm.busca ? { numero: vm.busca } : {}
       PedidoService.find(query)
         .success(function (data) {
           vm.pedidos = data;
